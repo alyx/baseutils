@@ -2,7 +2,6 @@
 
 int main(int argc, char ** argv)
 {
-    int ret;
 
     if (argc != 2)
     {
@@ -10,9 +9,7 @@ int main(int argc, char ** argv)
         exit(EXIT_FAILURE);
     }
 
-    ret = unlink(argv[1]);
-
-    if (ret == -1)
+    if (unlink(argv[1]) == -1)
     {
         fprintf(stderr, "%s: %s: %s\n", argv[0], argv[1], strerror(errno));
         exit(errno);
